@@ -12,15 +12,13 @@ import (
 	tgbotapi "github.com/go-telegram-bot-api/telegram-bot-api/v5"
 )
 
-var selectedModel = "tiny" // Модель по умолчанию
+var selectedModel = "tiny"
 
 func main() {
-	// Проверяем наличие необходимых утилит
 	if err := checkDependencies(); err != nil {
 		log.Fatalf("Missing dependencies: %v", err)
 	}
 
-	// Заменить на свой токен
 	bot, err := tgbotapi.NewBotAPI("TELEGRAM_TOKEN")
 	if err != nil {
 		log.Fatalf("Error initializing bot: %v", err)
@@ -37,13 +35,11 @@ func main() {
 			continue
 		}
 
-		// Если сообщение — текстовое и содержит команду выбора модели
 		if update.Message.Text != "" {
 			handleTextMessage(bot, update.Message)
 			continue
 		}
 
-		// Если сообщение — голосовое
 		if update.Message.Voice != nil {
 			handleVoiceMessage(bot, update.Message)
 		}
