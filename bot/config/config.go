@@ -20,7 +20,7 @@ func GetToken(filepath string) (string, error) {
 		}
 	}
 
-	logInstance, err := logger.NewLogger(logFilePath)
+	logInstance, err := logger.GetLogger(logFilePath)
 	if err != nil {
 		return "", fmt.Errorf("Error initializing logger: %v", err)
 	}
@@ -84,7 +84,7 @@ func CheckDependencies() error {
 		}
 	}
 
-	logInstance, err := logger.NewLogger(logFilePath)
+	logInstance, err := logger.GetLogger(logFilePath)
 	if err != nil {
 		return fmt.Errorf("Error initializing logger: %v", err)
 	}

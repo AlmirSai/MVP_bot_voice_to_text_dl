@@ -42,12 +42,14 @@ Before running the bot, ensure you have the following installed:
    ```
 
 2. Set up the environment:
-   - Check config/config.go and change this string
-     ```
-     func GetToken() string {
-	        return "TELEGRAM_TOKEN"
-     }
-     ```
+   - Create .env file and add following variables:
+   ```bash
+   touch .env
+   ```
+   - Enter your telegram bot token:
+   ```bash
+    TELEGRAM_TOKEN="YOUR_TELEGRAM_BOT_TOKEN"
+   ```
 
 3. Install dependencies:
    ```bash
@@ -70,7 +72,7 @@ Before running the bot, ensure you have the following installed:
 
 2. Add the bot to a chat on Telegram and send a voice message. The bot will transcribe it and return the text.
 
-3. Use the command `model:tiny` or `model:large` to switch between models.
+3. Use the command `model: tiny` or `model: large` to switch between models.
 
 ---
 
@@ -99,8 +101,8 @@ voice-to-text-bot/
 ## Configuration
 
 ### Supported Commands
-- `model:tiny` - Switch to the **tiny** model.
-- `model:large` - Switch to the **large** model.
+- `model: tiny` - Switch to the **tiny** model.
+- `model: large` - Switch to the **large** model.
 
 ---
 

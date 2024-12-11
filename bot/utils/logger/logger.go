@@ -24,6 +24,17 @@ func NewLogger(filepath string) (*Logger, error) {
 	}, nil
 }
 
+func GetLogger(logFilePath string) (*Logger, error) {
+	if _, err := os.Stat("storage/logs"); os.IsNotExist(err) {
+		err := os.MkdirAll("storage/logs", 0755)
+		if err != nil {
+			return nil, err
+		}
+	}
+
+	return NewLogger(logFilePath)
+}
+
 func (l *Logger) Error(message string) {
 	l.logger.SetPrefix("ERROR: ")
 	l.logger.Println(message)
