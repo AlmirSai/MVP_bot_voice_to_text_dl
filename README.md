@@ -156,7 +156,7 @@ Contributions are welcome! Feel free to submit issues, fork the repository, and 
 
 ## <span style="color: #2196F3;">License</span>
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the Apache License - see the [LICENSE](LICENSE) file for details.
 
 ---
 
