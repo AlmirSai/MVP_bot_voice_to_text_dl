@@ -6,6 +6,7 @@ import (
 	tgbotapi "github.com/go-telegram-bot-api/telegram-bot-api/v5"
 	"tg-whisper-bot/bot/config"
 	"tg-whisper-bot/bot/handlers"
+	"tg-whisper-bot/bot/utils/logger"
 )
 
 func main() {
@@ -30,7 +31,19 @@ func main() {
 
 	updates := bot.GetUpdatesChan(u)
 
+	logFilePath := "storage/logs/bot.log"
+	logInstance, err := logger.GetLogger(logFilePath)
+	if err != nil {
+		log.Fatalf("Error initializing logger: %v", err)
+	}
+	defer logInstance.Close()
+
 	for update := range updates {
+		if update.CallbackQuery != nil {
+			handlers.HandleCallback(bot, update.CallbackQuery, logInstance)
+			continue
+		}
+
 		if update.Message == nil {
 			continue
 		}
