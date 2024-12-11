@@ -18,6 +18,7 @@ func TranscribeWithWhisper(audioPath, model string) (string, error) {
 	}
 	defer os.Remove(wavPath)
 
+	// TODO: change standart path
 	outputPath := "voice.txt"
 	cmd := exec.Command("whisper", wavPath, "--language", "ru", "--model", model, "--output_format", "txt")
 	whisperOutput, err := cmd.CombinedOutput()

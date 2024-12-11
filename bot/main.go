@@ -9,11 +9,16 @@ import (
 )
 
 func main() {
+	token, err := config.GetToken(".env")
+	if err != nil {
+		log.Fatalf("Error reading token: %v", err)
+	}
+
 	if err := config.CheckDependencies(); err != nil {
 		log.Fatalf("Missing dependencies: %v", err)
 	}
 
-	bot, err := tgbotapi.NewBotAPI(config.GetToken())
+	bot, err := tgbotapi.NewBotAPI(token)
 	if err != nil {
 		log.Fatalf("Error initializing bot: %v", err)
 	}
