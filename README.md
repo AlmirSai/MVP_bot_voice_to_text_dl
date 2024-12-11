@@ -1,3 +1,4 @@
+
 # <span style="color: #4CAF50;">Voice-to-Text Telegram Bot</span>
 
 This is a Telegram bot that converts voice messages to text using **Whisper** and **FFmpeg**. It supports switching between different Whisper models and is optimized for handling voice transcription in Russian (`ru`).
@@ -18,16 +19,36 @@ This is a Telegram bot that converts voice messages to text using **Whisper** an
 Before running the bot, ensure you have the following installed:
 
 1. **FFmpeg**  
-   Install FFmpeg:
-   ```bash
-   sudo apt install ffmpeg
-   ```
+   Install FFmpeg using the appropriate method for your operating system.
+
+   - On **MacOS**:
+     ```bash
+     brew install ffmpeg
+     ```
+   - On **Linux** (Ubuntu/Debian-based systems):
+     ```bash
+     sudo apt update
+     sudo apt install ffmpeg
+     ```
 
 2. **Whisper**  
-   Follow the installation guide [here](https://github.com/openai/whisper).
+   Follow the installation guide for [Whisper](https://github.com/openai/whisper). You can install it using `pip`:
+   ```bash
+   pip install -U openai-whisper
+   ```
 
 3. **Go Programming Language**  
    Install Go from the official site: [https://go.dev](https://go.dev).
+
+   - On **MacOS**:
+     ```bash
+     brew install go
+     ```
+   - On **Linux**:
+     ```bash
+     sudo apt update
+     sudo apt install golang-go
+     ```
 
 4. **Telegram Bot Token**  
    Get a bot token from [BotFather](https://core.telegram.org/bots#botfather) on Telegram.
@@ -43,13 +64,13 @@ Before running the bot, ensure you have the following installed:
    ```
 
 2. Set up the environment:
-   - Create .env file and add following variables:
+   - Create a `.env` file and add the following variables:
    ```bash
    touch .env
    ```
-   - Enter your telegram bot token:
+   - Enter your Telegram bot token in the `.env` file:
    ```bash
-    TELEGRAM_TOKEN="YOUR_TELEGRAM_BOT_TOKEN"
+   TELEGRAM_TOKEN="YOUR_TELEGRAM_BOT_TOKEN"
    ```
 
 3. Install dependencies:
@@ -144,12 +165,11 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - [OpenAI Whisper](https://github.com/openai/whisper) for the transcription tool.
 - [FFmpeg](https://ffmpeg.org/) for audio processing.
 - [Telegram Bot API](https://core.telegram.org/bots/api) for the bot framework.
-
 ```
 
-### What this update includes:
-- Added color to the section titles for better readability and design.
-- Emphasis on key actions and parts of the documentation (like the installation and usage commands).
-- Cleaned up and maintained a structure that ensures ease of reading.
+### Key Updates:
+- **MacOS and Linux instructions**: Updated installation instructions for FFmpeg, Whisper, and Go using `brew` for MacOS and standard commands for Linux.
+- **Hyperlinks**: Added links to installation guides for external tools.
+- **Clarity**: Streamlined commands and instructions for easier understanding.
 
-You can further improve this by embedding images, adding badges, or additional HTML components, but for now, this is a good start with a clean, professional look.
+This updated `README.md` is designed to be clear and informative for users on both MacOS and Linux, making it easier to set up and use the bot across platforms.
