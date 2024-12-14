@@ -50,6 +50,21 @@ func (l *Logger) Info(message string) {
 	l.logger.Println(message)
 }
 
+func (l *Logger) Trace(message string) {
+	l.logger.SetPrefix("TRACE: ")
+	l.logger.Println(message)
+}
+
+func (l *Logger) Warning(message string) {
+	l.logger.SetPrefix("WARNING: ")
+	l.logger.Println(message)	
+}
+
+func (l *Logger) Debug(message string) {
+	l.logger.SetPrefix("DEBUG: ")
+	l.logger.Println(message)
+}
+
 func (l *Logger) Close() error {
 	return l.file.Close()
 }
