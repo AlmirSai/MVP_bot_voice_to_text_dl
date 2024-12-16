@@ -1,0 +1,20 @@
+name: Notify on Failure
+
+on:
+  workflow_run:
+    workflows: ["Continuous Integration", "Build Process", "Continuous Deployment"]
+    types:
+      - completed
+
+jobs:
+  send_notification:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Send failure notification
+        if: failure()
+        run: |
+          echo "Build failed! Sending notification..."
+          # Пример отправки уведомления через Telegram или email.

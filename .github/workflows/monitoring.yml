@@ -1,0 +1,19 @@
+name: Monitoring and Alerts
+
+on:
+  workflow_run:
+    workflows: ["Continuous Integration", "Build Process"]
+    types:
+      - completed
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Send status notification
+        run: |
+          echo "Sending build status notification..."
+          # Пример отправки уведомления, например через Telegram или email.

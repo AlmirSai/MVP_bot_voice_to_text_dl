@@ -1,0 +1,27 @@
+name: Validate Project
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Validate .env file
+        run: |
+          if [ ! -f .env ]; then
+            echo ".env file not found!"
+            exit 1
+          fi
+
+      - name: Validate go.mod
+        run: |
+          if [ ! -f go.mod ]; then
+            echo "go.mod file not found!"
+            exit 1
+          fi
