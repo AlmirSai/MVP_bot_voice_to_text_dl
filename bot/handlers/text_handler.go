@@ -1,3 +1,4 @@
+// bot/handlers/text_handler.go
 package handlers
 
 import (

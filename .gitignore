@@ -32,12 +32,16 @@ uploads/
 
 user_data/
 sessions/
+storage/
 
 bin/
 *.exe
 *.out
 *.o
+main
 
 vendor/
 
 .golangci.yml
+
+delete_logs.sh
