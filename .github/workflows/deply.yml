@@ -3,9 +3,7 @@ name: Deploy Project
 on:
   push:
     branches:
-      - main
-      - develop
-      - test
+      - '*'
 jobs:
   deploy:
     runs-on: ubuntu-latest

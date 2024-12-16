@@ -3,9 +3,7 @@ name: Documentation Generation
 on:
   push:
     branches:
-      - main
-      - develop
-      - test
+      - '*'
 
 jobs:
   generate_docs:
