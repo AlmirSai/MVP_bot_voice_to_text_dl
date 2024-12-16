@@ -10,6 +10,9 @@ import (
 
 const (
 	ModelTiny  = "tiny"
+	ModelBase  = "base"
+	ModelSmall = "small"
+	ModelMedium = "medium"
 	ModelLarge = "large"
 )
 
@@ -18,6 +21,9 @@ var SelectedModel = ModelTiny
 func HandleModelCommand(bot *tgbotapi.BotAPI, message *tgbotapi.Message, logInstance *logger.Logger) {
 	buttons := []tgbotapi.InlineKeyboardButton{
 		tgbotapi.NewInlineKeyboardButtonData("Tiny", ModelTiny),
+		tgbotapi.NewInlineKeyboardButtonData("Base", ModelBase),
+		tgbotapi.NewInlineKeyboardButtonData("Small", ModelSmall),
+		tgbotapi.NewInlineKeyboardButtonData("Medium", ModelMedium),
 		tgbotapi.NewInlineKeyboardButtonData("Large", ModelLarge),
 	}
 
