@@ -45,3 +45,5 @@ vendor/
 .golangci.yml
 
 delete_logs.sh
+actions-runner/
+run_all_workflows.sh

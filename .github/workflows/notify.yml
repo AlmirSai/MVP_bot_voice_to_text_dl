@@ -1,6 +1,7 @@
 name: Notify on Failure
 
 on:
+  workflow_dispatch:
   workflow_run:
     workflows: ["Continuous Integration", "Build Process", "Continuous Deployment"]
     types:
