@@ -1,0 +1,54 @@
+name: Custom Issue
+description: A customizable template for specific tasks or requests.
+labels:
+  - custom
+assignees: []
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Custom Issue
+        This is a flexible template for handling different kinds of tasks or requests.
+
+  - type: input
+    id: task_type
+    attributes:
+      label: Task Type
+      description: |
+        Choose the type of task you are submitting.
+      options:
+        - label: Bug Fix
+        - label: New Feature
+        - label: Documentation Update
+        - label: Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: task_description
+    attributes:
+      label: Task Description
+      description: |
+        Provide a detailed description of the task you're submitting.
+      placeholder: What do you need help with?
+    validations:
+      required: true
+
+  - type: input
+    id: deadline
+    attributes:
+      label: Deadline (Optional)
+      description: If applicable, when would you like to see this task completed?
+      placeholder: E.g. December 31, 2024
+
+  - type: checkboxes
+    id: task_status
+    attributes:
+      label: Current Status
+      options:
+        - label: Not Started
+        - label: In Progress
+        - label: Completed
+    validations:
+      required: true
