@@ -1,0 +1,57 @@
+name: Bug Report
+description: Report an issue you encountered while using the project.
+labels:
+  - bug
+assignees: []
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Bug Report
+        Please provide detailed information about the bug you've encountered.
+
+  - type: textarea
+    id: repro_steps
+    attributes:
+      label: Reproduction steps
+      description: |
+        How do you trigger this bug? Please walk us through it step by step.
+      placeholder: |
+        1. Open the application
+        2. Navigate to the settings page
+        3. Click on 'Save'
+    validations:
+      required: true
+
+  - type: input
+    id: bug_description
+    attributes:
+      label: Bug Description
+      description: Briefly describe the bug.
+      placeholder: Unexpected behavior or crash
+    validations:
+      required: true
+
+  - type: dropdown
+    id: bug_severity
+    attributes:
+      label: Bug Severity
+      options:
+        - Critical
+        - Major
+        - Minor
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: system_info
+    attributes:
+      label: Which system are you using?
+      options:
+        - label: Windows 10
+        - label: macOS
+        - label: Linux
+        - label: Other
+    validations:
+      required: true
