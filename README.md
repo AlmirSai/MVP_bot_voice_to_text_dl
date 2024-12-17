@@ -171,5 +171,3 @@ This project is licensed under the Apache License - see the [LICENSE](LICENSE) f
 - **MacOS and Linux instructions**: Updated installation instructions for FFmpeg, Whisper, and Go using `brew` for MacOS and standard commands for Linux.
 - **Hyperlinks**: Added links to installation guides for external tools.
 - **Clarity**: Streamlined commands and instructions for easier understanding.
-
-This updated `README.md` is designed to be clear and informative for users on both MacOS and Linux, making it easier to set up and use the bot across platforms.
