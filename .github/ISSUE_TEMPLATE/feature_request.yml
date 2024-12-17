@@ -1,0 +1,51 @@
+name: Feature Request
+description: Suggest a new feature or enhancement for the project.
+labels:
+  - enhancement
+assignees: []
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Feature Request
+        Please describe the feature you would like to see implemented.
+
+  - type: textarea
+    id: feature_description
+    attributes:
+      label: Feature description
+      description: A clear and concise description of the feature.
+      placeholder: What exactly do you want to be added or changed?
+    validations:
+      required: true
+
+  - type: input
+    id: problem_addressed
+    attributes:
+      label: Problem this feature solves
+      description: Explain what problem or limitation this feature will solve.
+      placeholder: This feature will solve XYZ
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposed_solution
+    attributes:
+      label: Proposed solution
+      description: |
+        How do you suggest we implement this feature? Please provide some ideas.
+      placeholder: "Add option for dark mode"
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: priority
+    attributes:
+      label: Priority level
+      options:
+        - label: High
+        - label: Medium
+        - label: Low
+    validations:
+      required: true
