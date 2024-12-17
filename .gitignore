@@ -47,3 +47,4 @@ vendor/
 delete_logs.sh
 actions-runner/
 run_all_workflows.sh
+.github_files_contents.txt

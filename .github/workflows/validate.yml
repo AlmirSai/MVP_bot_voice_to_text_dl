@@ -18,11 +18,45 @@ jobs:
           if [ ! -f .env ]; then
             echo ".env file not found!"
             exit 1
+          else
+            echo ".env file exists, checking for required variables..."
+            REQUIRED_VARS=("DB_HOST" "DB_USER" "DB_PASSWORD")
+            for var in "${REQUIRED_VARS[@]}"; do
+              if ! grep -q "^$var=" .env; then
+                echo "Missing required variable: $var"
+                exit 1
+              fi
+            done
           fi
 
       - name: Validate go.mod
         run: |
           if [ ! -f go.mod ]; then
             echo "go.mod file not found!"
+            exit 1
+          else
+            echo "Validating go.mod dependencies..."
+            go mod tidy
+            if [ $? -ne 0 ]; then
+              echo "go.mod is not valid or has issues"
+              exit 1
+            fi
+          fi
+
+      - name: Validate Go code formatting
+        run: |
+          echo "Checking Go code formatting..."
+          go fmt ./...
+          if [ $? -ne 0 ]; then
+            echo "Go code is not properly formatted"
+            exit 1
+          fi
+
+      - name: Validate Go imports
+        run: |
+          echo "Checking Go imports..."
+          goimports -l .
+          if [ $? -ne 0 ]; then
+            echo "There are unorganized Go imports"
             exit 1
           fi

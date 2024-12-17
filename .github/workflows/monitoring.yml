@@ -17,4 +17,3 @@ jobs:
       - name: Send status notification
         run: |
           echo "Sending build status notification..."
-          # Пример отправки уведомления, например через Telegram или email.

@@ -14,8 +14,9 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Send failure notification
+      - name: Send failure notification via email
         if: failure()
         run: |
-          echo "Build failed! Sending notification..."
-          # Пример отправки уведомления через Telegram или email.
+          echo "Subject: Build Failed Notification" > /tmp/email.txt
+          echo "The build of your project has failed. Please check the logs for details." >> /tmp/email.txt
+          msmtp --host=${{ secrets.SMTP_SERVER }} --port=${{ secrets.SMTP_PORT }} --user=${{ secrets.SMTP_USER }} --passwordeval="echo ${{ secrets.SMTP_PASSWORD }}" --from=${{ secrets.EMAIL_FROM }} --to=${{ secrets.EMAIL_TO }} < /tmp/email.txt
