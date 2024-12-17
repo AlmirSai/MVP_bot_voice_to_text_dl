@@ -1,0 +1,32 @@
+name: 'Setup GitHub Runner'
+description: 'Sets up a self-hosted GitHub Runner for the repository.'
+inputs:
+  runner_token:
+    description: 'The GitHub runner registration token.'
+    required: true
+  runner_name:
+    description: 'Name of the runner.'
+    required: true
+  runner_workdir:
+    description: 'Directory where the runner will store the workspaces.'
+    required: false
+    default: '/home/runner/work'
+
+runs:
+  using: 'docker'
+  image: 'ubuntu:20.04'
+  steps:
+    - name: Install dependencies
+      run: |
+        apt-get update
+        apt-get install -y curl jq
+    - name: Download GitHub runner
+      run: |
+        curl -O -L https://github.com/actions/virtual-environments/releases/download/ubuntu-20.04-20231205/runner-linux-x64-2.313.0.tar.gz
+    - name: Extract runner
+      run: tar xzf runner-linux-x64-2.313.0.tar.gz
+    - name: Configure runner
+      run: |
+        ./config.sh --url ${{ github.server_url }} --token ${{ inputs.runner_token }} --name ${{ inputs.runner_name }} --work ${{ inputs.runner_workdir }}
+    - name: Start runner
+      run: ./run.sh
