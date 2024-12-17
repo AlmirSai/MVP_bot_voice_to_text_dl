@@ -1,0 +1,23 @@
+name: 'Setup Tracking'
+description: 'Sets up tracking for changes in the repository.'
+inputs:
+  tracking_enabled:
+    description: 'Enable or disable tracking.'
+    required: true
+    default: 'true'
+  tracking_label:
+    description: 'Label to track for new issues or pull requests.'
+    required: false
+    default: 'tracking'
+
+runs:
+  using: 'node12'
+  steps:
+    - name: Setup tracking
+      run: |
+        if [[ "${{ inputs.tracking_enabled }}" == "true" ]]; then
+          echo "Tracking enabled with label: ${{ inputs.tracking_label }}"
+          # Logic for tracking issues or PRs based on label
+        else
+          echo "Tracking is disabled."
+        fi
