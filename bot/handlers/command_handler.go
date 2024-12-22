@@ -44,7 +44,7 @@ func HandleModelCommand(bot *tgbotapi.BotAPI, message *tgbotapi.Message, logInst
 func HandleCallback(bot *tgbotapi.BotAPI, callback *tgbotapi.CallbackQuery, logInstance *logger.Logger) {
 	model := callback.Data
 
-	if model == ModelTiny || model == ModelLarge {
+	if model == ModelTiny || model == ModelBase || model == ModelSmall || model == ModelMedium || model == ModelLarge {
 		SelectedModel = model
 
 		response := fmt.Sprintf("Model successfully changed to: %s", SelectedModel)

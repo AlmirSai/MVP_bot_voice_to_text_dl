@@ -25,7 +25,6 @@ jobs:
       - name: Deploy to server
         run: |
           echo "Deploying to server..."
-          # Убедитесь, что переменные окружения настроены для SSH или других методов аутентификации
           scp -i ${{ secrets.SSH_PRIVATE_KEY }} bot/main user@your-server:/path/to/deploy
           ssh -i ${{ secrets.SSH_PRIVATE_KEY }} user@your-server 'bash -s' < deploy_script.sh
         env:
