@@ -70,3 +70,43 @@ func HandleCallback(bot *tgbotapi.BotAPI, callback *tgbotapi.CallbackQuery, logI
 
 	logInstance.Error(fmt.Sprintf("Invalid model selected: %s", model))
 }
+
+func HandleInfoCommand(bot *tgbotapi.BotAPI, message *tgbotapi.Message, logInstance *logger.Logger) {
+	logInstance.Info(fmt.Sprintf("User %s (ID: %d) issued the /info command", message.From.UserName, message.From.ID))
+
+	botInfo := fmt.Sprintf(
+		`🤖 *Voice-to-Text Bot Information* 🤖
+		Hello, *%s*! 
+		I am a bot designed to convert voice messages into text. Here are some of my features:
+		- 🎙️ Convert voice messages to text using advanced speech-to-text models.
+		- 🌐 Support for Russian language.
+		- 📜 Easy command-based usage.
+		- 🔧 Configurable to fit your needs.
+		
+		💡 *Usage:*
+		1️⃣ Send me a voice message, and I'll transcribe it into text.
+		2️⃣ Use commands like /info, and /model for guidance.
+		
+		⚙️ Currently integrated with *Whisper API* for transcription.
+		
+		If you encounter issues or have suggestions, please visit the [GitHub Repository](https://github.com/AlmirSai/MVP_bot_voice_to_text_dl) or contact the developer.
+		
+		Thank you for using this bot!`,
+				message.From.FirstName,
+	)
+
+	btnGitHub := tgbotapi.NewInlineKeyboardButtonURL("GitHub Repository", "https://github.com/AlmirSai/MVP_bot_voice_to_text_dl")
+
+	keyboard := tgbotapi.NewInlineKeyboardMarkup(
+		tgbotapi.NewInlineKeyboardRow(btnGitHub),
+	)
+
+	msg := tgbotapi.NewMessage(message.Chat.ID, botInfo)
+	msg.ParseMode = "Markdown"
+	msg.DisableWebPagePreview = true
+	msg.ReplyMarkup = keyboard
+
+	if _, err := bot.Send(msg); err != nil {
+		logInstance.Error(fmt.Sprintf("Failed to send /info response: %v", err))
+	}
+}

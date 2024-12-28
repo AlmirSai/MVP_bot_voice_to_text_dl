@@ -11,23 +11,32 @@ import (
 )
 
 func HandleTextMessage(bot *tgbotapi.BotAPI, message *tgbotapi.Message) {
-	text := strings.ToLower(message.Text)
-
+	text := strings.TrimSpace(strings.ToLower(message.Text))
+	
 	logFilePath := "storage/logs/text_handler.log"
 
 	logInstance, err := logger.GetLogger(logFilePath)
 	if err != nil {
-		fmt.Println("Error initializing logger:", err)
+		fmt.Printf("Error initialing logger: %v\n", err)
 		return
 	}
 	defer logInstance.Close()
 
-	logInstance.Info(fmt.Sprintf("Received message: %s", text))
+	logInstance.Info(fmt.Sprintf("Received message from user %s (ID: %d): %s", message.From.UserName, message.From.ID, message.Text))
 
-	if text == "/model" {
+
+	switch text {
+	case "/model":
 		HandleModelCommand(bot, message, logInstance)
-		return
-	}
+	case "/info":
+		HandleInfoCommand(bot, message, logInstance)
+	default:
+		logInstance.Info(fmt.Sprintf("Unrecognized command: %s", text))
 
-	logInstance.Info("No relevant command detected.")
+		defaultResponse := "Sorry, I didn't understand that command. Use /info to learn more about my features or /model to choose a transcription model."
+		msg := tgbotapi.NewMessage(message.Chat.ID, defaultResponse)
+		if _, err := bot.Send(msg); err != nil {
+			logInstance.Error(fmt.Sprintf("Error sending unrecognized command response: %v", err))
+		}
+	}
 }
