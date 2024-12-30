@@ -25,8 +25,8 @@ jobs:
       - name: Generate Go documentation
         run: |
           echo "Generating documentation..."
-          godoc -http=:6060 &
-          curl http://localhost:6060/pkg/ > docs.html
+          godoc -http=:8082 &
+          curl http://localhost:8082/pkg/ > storage/docs/docs.html
           
       - name: Upload generated docs as artifact
         uses: actions/upload-artifact@v3
