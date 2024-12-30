@@ -9,6 +9,22 @@ import (
 	"tg-whisper-bot/bot/utils/logger"
 )
 
+// TranscribeWithWhisper transcribes an audio file using the Whisper model.
+//
+// This function converts the input audio file to a WAV format using FFmpeg,
+// and then uses the Whisper command-line tool to perform speech-to-text
+// transcription in Russian. The transcription result is saved to a text file
+// and returned as a string. Logging is performed throughout the process
+// to monitor the status and any errors that occur.
+//
+// Parameters:
+//   - audioPath: The path to the audio file to be transcribed.
+//   - model: The Whisper model to be used for transcription.
+//
+// Returns:
+//   - The transcribed text as a string if successful.
+//   - An error if any issues are encountered during conversion or transcription.
+
 func TranscribeWithWhisper(audioPath, model string) (string, error) {
 	logFilePath := "storage/logs/speech_to_text.log"
 

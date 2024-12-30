@@ -4,24 +4,33 @@ from routes.upload import router as upload_router
 
 import sys
 
-# Initialize FastAPI app
+
 app = FastAPI(title="FastAPI Project")
 
-# Include routes
 app.include_router(upload_router)
+
 
 @app.get("/")
 async def root():
+    """
+    Welcome to the FastAPI Project!
+
+    This endpoint is the root of the API and just returns a message.
+    """
     return {"message": "Welcome to the FastAPI Project!"}
 
 
 def check_dependencies():
+    """
+    Checks if the required dependencies are installed. If not, prints an error
+    message with instructions on how to install them and exits the program.
+    """
     try:
         import bs4
     except ImportError:
         print(
             "Error: Missing dependencies. Install them by running:\n"
-            "  pip install -r requirements.txt"
+            "pip install -r requirements.txt"
         )
         sys.exit(1)
 

@@ -11,6 +11,20 @@ import (
 	"tg-whisper-bot/bot/utils/logger"
 )
 
+// GetToken reads a specified .env file to retrieve the TELEGRAM_TOKEN value.
+//
+// It initializes a logger and logs the process of opening and reading the file.
+// The function scans the file line by line, ignoring empty lines and comments,
+// and splits each line into key-value pairs. If the key TELEGRAM_TOKEN is found,
+// its corresponding value is returned. If the token is not found or if any error
+// occurs during file operations or scanning, an error is returned.
+//
+// Parameters:
+//   - filepath: Path to the .env file containing the TELEGRAM_TOKEN.
+//
+// Returns:
+//   - The TELEGRAM_TOKEN value if found, otherwise an error.
+
 func GetToken(filepath string) (string, error) {
 	logFilePath := "storage/logs/config.log"
 
@@ -75,6 +89,9 @@ func GetToken(filepath string) (string, error) {
 	return "", fmt.Errorf("TELEGRAM_TOKEN not found in .env")
 }
 
+// CheckDependencies checks for the presence of required commands (ffmpeg, whisper)
+// and log directories. If any required command or log directory is missing,
+// an error is returned.
 func CheckDependencies() error {
 	logFilePath := "storage/logs/config.log"
 

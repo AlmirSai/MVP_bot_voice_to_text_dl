@@ -9,6 +9,8 @@ type Executor interface {
 
 type RealExecutor struct{}
 
+// LookPath implements the Executor interface by calling os/exec.LookPath.
+// It returns the path for the given command and an error if the command is not found.
 func (r *RealExecutor) LookPath(cmd string) (string, error) {
 	return exec.LookPath(cmd)
 }

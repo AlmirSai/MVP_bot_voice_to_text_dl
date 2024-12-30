@@ -10,6 +10,14 @@ import (
 	"tg-whisper-bot/bot/utils/logger"
 )
 
+// main initializes the bot, sets up the logger, and starts the main loop.
+//
+// It reads the Telegram bot token from the .env file, checks for dependencies,
+// and initializes the Telegram bot API.
+//
+// It then sets up the logger and starts the main loop, which listens for
+// incoming updates, handles callbacks (model changes), and processes text and
+// voice messages.
 func main() {
 	token, err := config.GetToken(".env")
 	if err != nil {

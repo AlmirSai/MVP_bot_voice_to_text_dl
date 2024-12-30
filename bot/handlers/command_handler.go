@@ -19,6 +19,7 @@ const (
 
 var SelectedModel = ModelTiny
 
+// HandleModelCommand handles the /model command by sending an inline keyboard with available models.
 func HandleModelCommand(bot *tgbotapi.BotAPI, message *tgbotapi.Message, logInstance *logger.Logger) {
 	buttons := []tgbotapi.InlineKeyboardButton{
 		tgbotapi.NewInlineKeyboardButtonData("Tiny", ModelTiny),
@@ -41,6 +42,10 @@ func HandleModelCommand(bot *tgbotapi.BotAPI, message *tgbotapi.Message, logInst
 	logInstance.Info("Model selection keyboard sent.")
 }
 
+// HandleCallback processes a callback query with the selected model name.
+// It changes the currently selected model and responds with a message
+// indicating the new model. If the selected model is invalid, it responds with
+// an error message.
 func HandleCallback(bot *tgbotapi.BotAPI, callback *tgbotapi.CallbackQuery, logInstance *logger.Logger) {
 	model := callback.Data
 
@@ -71,6 +76,8 @@ func HandleCallback(bot *tgbotapi.BotAPI, callback *tgbotapi.CallbackQuery, logI
 	logInstance.Error(fmt.Sprintf("Invalid model selected: %s", model))
 }
 
+// HandleInfoCommand processes the /info command by sending a message with information about the bot.
+// The response includes a link to the GitHub Repository and a brief description of the bot's features.
 func HandleInfoCommand(bot *tgbotapi.BotAPI, message *tgbotapi.Message, logInstance *logger.Logger) {
 	logInstance.Info(fmt.Sprintf("User %s (ID: %d) issued the /info command", message.From.UserName, message.From.ID))
 
