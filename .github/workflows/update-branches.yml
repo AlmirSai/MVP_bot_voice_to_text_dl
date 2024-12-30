@@ -1,0 +1,26 @@
+name: Update branches from main
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  update-branches:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Fetch and update branches
+        run: |
+          git fetch origin
+          for branch in $(git branch -r | grep -v "main" | grep -v "HEAD" | awk -F/ '{print $2}'); do
+            echo "Updating branch $branch..."
+            git checkout $branch
+            git merge origin/main --no-edit || echo "Merge conflict in $branch. Please resolve manually."
+            git push origin $branch
+          done
