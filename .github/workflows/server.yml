@@ -31,10 +31,9 @@ jobs:
           source .venv/bin/activate
           pytest # or use any other test framework you're using
 
-  # Job for building and pushing a Docker image (optional)
   docker-build-and-push:
     runs-on: ubuntu-latest
-    needs: build-and-test # Ensure the build-and-test job is completed before this one
+    needs: build-and-test
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
