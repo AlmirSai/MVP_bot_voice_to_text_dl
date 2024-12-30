@@ -13,7 +13,7 @@ This roadmap outlines the planned milestones and features for the development of
 
 ---
 
-## Phase 1: Project Initialization (Q1 2024)
+## Phase 1: Project Initialization (Q1 2025)
 
 **Goal:** Set up the project environment and prepare the necessary infrastructure for development.
 
@@ -28,7 +28,7 @@ This roadmap outlines the planned milestones and features for the development of
 
 ---
 
-## Phase 2: Core Features Development (Q1 - Q2 2024)
+## Phase 2: Core Features Development (Q1 - Q2 2025)
 
 **Goal:** Develop the core features of the voice-to-text server, including file upload, audio processing, and text conversion.
 
@@ -43,7 +43,7 @@ This roadmap outlines the planned milestones and features for the development of
 
 ---
 
-## Phase 3: Testing & Quality Assurance (Q2 2024)
+## Phase 3: Testing & Quality Assurance (Q2 2025)
 
 **Goal:** Ensure the application is stable, functional, and bug-free.
 
@@ -58,7 +58,7 @@ This roadmap outlines the planned milestones and features for the development of
 
 ---
 
-## Phase 4: Deployment & Release (Q3 2024)
+## Phase 4: Deployment & Release (Q3 2025)
 
 **Goal:** Deploy the application to a production environment and ensure its scalability.
 
@@ -73,7 +73,7 @@ This roadmap outlines the planned milestones and features for the development of
 
 ---
 
-## Phase 5: Post-Launch Improvements (Q4 2024 and Beyond)
+## Phase 5: Post-Launch Improvements (Q4 2025 and Beyond)
 
 **Goal:** Improve the product based on user feedback and continue enhancing the server with additional features.
 
@@ -84,7 +84,7 @@ This roadmap outlines the planned milestones and features for the development of
 - [ ] **User Feedback Integration**: Collect and integrate user feedback for further improvements.
 - [ ] **Refactoring**: Refactor the codebase for better maintainability and scalability.
 
-**Expected Completion:** Ongoing after July 2024
+**Expected Completion:** Ongoing after July 2025
 
 ---
 
