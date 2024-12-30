@@ -11,7 +11,8 @@ import (
 	tgbotapi "github.com/go-telegram-bot-api/telegram-bot-api/v5"
 )
 
-// HandleVoiceMessage processes a voice message from the Telegram bot.
+// HandleVoiceMessage processes a voice message by downloading the file, transcribing it using Whisper, and sending the transcription back to the user.
+// It logs errors and handles them gracefully by sending an error message to the user.
 func HandleVoiceMessage(bot *tgbotapi.BotAPI, message *tgbotapi.Message) {
 	logInstance, err := logger.GetLogger("storage/logs/voice_handler.log")
 	if err != nil {

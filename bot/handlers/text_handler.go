@@ -10,6 +10,9 @@ import (
 	tgbotapi "github.com/go-telegram-bot-api/telegram-bot-api/v5"
 )
 
+// HandleTextMessage processes a text message from the Telegram bot.
+// It handles the following commands: /model, /info.
+// For unrecognized commands, it sends a default response.
 func HandleTextMessage(bot *tgbotapi.BotAPI, message *tgbotapi.Message) {
 	text := strings.TrimSpace(strings.ToLower(message.Text))
 	
