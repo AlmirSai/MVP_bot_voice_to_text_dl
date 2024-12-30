@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Form</title>
+</head>
+<body>
+<h1>Upload JSON and HTML Reports</h1>
+<form action="/upload-json/" method="post" enctype="multipart/form-data">
+    <label for="json_file">Upload JSON Report:</label><br>
+    <input type="file" id="json_file" name="file"><br><br>
+    <input type="submit" value="Upload JSON">
+</form>
+<form action="/upload-html/" method="post" enctype="multipart/form-data">
+    <label for="html_file">Upload HTML Report:</label><br>
+    <input type="file" id="html_file" name="file"><br><br>
+    <input type="submit" value="Upload HTML">
+</form>
+</body>
+</html>

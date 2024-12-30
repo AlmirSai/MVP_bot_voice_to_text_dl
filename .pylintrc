@@ -1,0 +1,41 @@
+[MASTER]
+ignore=build,server/node_modules,server/tests,server/.venv,server/git
+ignore-patterns=.*\.git,.*\.venv,.*\.node_modules
+persistent=yes
+init-hook='import sys; sys.path.append("server")'
+
+[MESSAGES CONTROL]
+disable=missing-docstring,  # Ignore missing docstrings
+        invalid-name,       # Allow variable names not following convention
+        fixme,              # Allow TODO/FIXME comments
+        too-many-arguments, # Allow functions with many arguments
+        too-few-public-methods # Allow small utility classes
+
+[FORMAT]
+max-line-length=88
+indent-string='    '
+
+[REPORTS]
+reports=no
+
+[TYPECHECK]
+generated-members=numpy.*,torch.*,cv2.*,pandas.*
+
+[LOGGING]
+logging-modules=logging
+
+[EXCEPTIONS]
+overgeneral-exceptions=Exception
+
+[DESIGN]
+max-args=10
+max-attributes=15
+
+[REFACTORING]
+min-similarity-lines=5
+
+[LOGGING]
+logging-modules=logging
+
+[ADVANCED]
+trace=verbose

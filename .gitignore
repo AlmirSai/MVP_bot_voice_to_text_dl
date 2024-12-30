@@ -1,9 +1,11 @@
 .DS_Store
 Thumbs.db
 
+.venv/
 venv/
 env/
 node_modules/
+.mypy_cache/
 
 *.env
 config.json

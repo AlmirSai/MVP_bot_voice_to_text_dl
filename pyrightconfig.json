@@ -1,0 +1,25 @@
+{
+    "typeCheckingMode": "strict",
+    "pythonVersion": "3.13",
+    "include": [
+        "server/**/*"
+    ],
+    "exclude": [
+        "**/node_modules",
+        "**/tests",
+        "build",
+        "**/.venv",
+        "**/git"
+    ],
+    "reportMissingImports": true,
+    "reportMissingTypeStubs": true,
+    "reportUnknownParameterType": true,
+    "reportUnknownMemberType": true,
+    "reportGeneralTypeIssues": true,
+    "useLibraryCodeForTypes": true,
+    "stubPath": "./typings",
+    "disableLanguageServices": false,
+    "logLevel": "info",
+    "pythonPlatform": "Linux",
+    "trace": "verbose"
+}
