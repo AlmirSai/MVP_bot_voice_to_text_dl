@@ -8,7 +8,7 @@ This is a Telegram bot that converts voice messages to text using **Whisper** an
 ## <span style="color: #2196F3;">Features</span>
 
 - Convert voice messages to text using OpenAI Whisper.
-- Switch between Whisper models (`tiny`, `large`) via commands.
+- Switch between Whisper models via commands.
 - Error handling for invalid inputs or processing failures.
 - Configurable for different languages and models.
 
@@ -94,28 +94,61 @@ Before running the bot, ensure you have the following installed:
 
 2. Add the bot to a chat on Telegram and send a voice message. The bot will transcribe it and return the text.
 
-3. Use the command `model: tiny` or `model: large` to switch between models.
+3. Use the command `model: type` to switch between models.
 
 ---
 
 ## <span style="color: #2196F3;">File Structure</span>
 
 ```plaintext
-voice-to-text-bot/
-├── bot/
-│   ├── config/
-│   │   └── config.go        # Dependency checks and configuration
-│   ├── handlers/
-│   │   ├── text_handler.go  # Handle text messages
-│   │   └── voice_handler.go # Handle voice messages
-│   ├── utils/
-│   │   ├── file_utils.go    # File operations (download, cleanup)
-│   │   └── speech_to_text.go# Whisper integration
-│   ├── main.go              # Entry point
-├── .gitignore
-├── go.mod
-├── go.sum
-└── README.md
+├── Dockerfile                  // Docker configuration
+├── LICENSE                     // License information
+├── Makefile                    // Makefile for building and running the bot
+├── README.md                   // README file
+├── ROADMAP.md                  // Roadmap for the project
+├── SECURITY.md                 // Security policy
+├── TODO.md                     // TODO list
+├── bot                         // Bot directory
+│   ├── cmd                     // Bot command directory
+│   │   └── main.go             // Main bot file
+│   ├── config                  // Configuration directory
+│   │   ├── config.go           // Configuration file
+│   │   ├── config_test.go      // Configuration test file
+│   ├── handlers                // Handler directory
+│   │   ├── command_handler.go  // Command handler
+│   │   ├── text_handler.go     // Text handler
+│   │   └── voice_handler.go    // Voice handler
+│   └── utils                   // Utility directory
+│       ├── executils           // Execution utilities directory
+│       │   ├── executils.go    // Execution utilities
+│       │   └── executils_test.go // Execution utilities test
+│       ├── file_utils.go       // File utilities
+│       ├── logger              // Logger directory
+│       │   ├── logger.go       // Logger
+│       │   ├── logger_test.go  // Logger test
+│       └── speech_to_text.go   // Speech-to-text utilities
+├── docker-compose.yml          // Docker Compose configuration
+├── go.mod                      // Go module file
+├── go.sum                      // Go module checksum file
+├── mypy.ini                    // Mypy configuration file
+├── pyrightconfig.json          // Pyright configuration file
+├── server                      // Server directory
+│   ├── app                     // Application directory
+│   │   ├── __init__.py         // Application initialization
+│   │   ├── config.py           // Application configuration
+│   │   ├── main.py             // Application entry point
+│   │   ├── routes              // Routes directory
+│   │   │   ├── __init__.py     // Routes initialization
+│   │   │   └── upload.py       // Upload route
+│   │   ├── services            // Services directory
+│   │   │   ├── __init__.py     // Services initialization
+│   │   │   ├── html_parser.py  // HTML parser
+│   │   │   └── json_parser.py  // JSON parser
+│   │   └── templates           // Templates directory
+│   │       └── upload_form.html // Upload form template
+│   └── requirements.txt        // Python dependencies
+├── storage                     // Storage directory
+└── .github/                    // GitHub configuration(CICD)
 ```
 
 ---
@@ -124,6 +157,9 @@ voice-to-text-bot/
 
 ### Supported Commands
 - `model: tiny` - Switch to the **tiny** model.
+- `model: base` - Switch to the **base** model.
+- `model: small` - Switch to the **small** model.
+- `model: medium` - Switch to the **medium** model.
 - `model: large` - Switch to the **large** model.
 
 ---
