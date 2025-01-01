@@ -13,11 +13,11 @@ import (
 )
 
 const (
-	logFilePathGetTokenSuccess      = "../../storage/logs/test_get_token.log"
-	logFilePathGetTokenFileNotFound = "../../storage/logs/test_get_token_file_not_found.log"
+	logFilePathGetTokenSuccess       =  "../../storage/logs/test_get_token.log"
+	logFilePathGetTokenFileNotFound  =  "../../storage/logs/test_get_token_file_not_found.log"
 	logFilePathGetTokenTokenNotFound = "../../storage/logs/test_get_token_token_not_found.log"
-	logFilePathCheckDepsSuccess     = "../../storage/logs/test_check_dependencies_success.log"
-	logFilePathCheckDepsFail        = "../../storage/logs/test_check_dependencies_fail.log"
+	logFilePathCheckDepsSuccess      =  "../../storage/logs/test_check_dependencies_success.log"
+	logFilePathCheckDepsFail         =  "../../storage/logs/test_check_dependencies_fail.log"
 )
 
 type MockExecutor struct {

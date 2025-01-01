@@ -1,5 +1,7 @@
 
-# <span style="color: #4CAF50;">Voice-to-Text Telegram Bot</span>
+# <span style="color: #4CAF50;">Telegram-AI-BotTelegram Bot</span>
+
+![Preview](preview.png)
 
 This is a Telegram bot that converts voice messages to text using **Whisper** and **FFmpeg**. It supports switching between different Whisper models and is optimized for handling voice transcription in Russian (`ru`).
 
